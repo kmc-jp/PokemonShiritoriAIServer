@@ -35,7 +35,6 @@ class Game
     @table[get_index(k[0])][get_index(k[-1])] -= 1
     @unused.delete(h)
     @pos = get_index(k[-1])
-    puts "pos: #{@pos}"
   end
   def call_ai
     res = 0
@@ -52,7 +51,6 @@ class Game
   def play(str)
     use(str)
     res = call_ai
-    puts "res: #{res}"
     bot_h = @unused.find {|h|
       next if h["kana"][-1] == "ん"
       k = h["kana"]
@@ -76,7 +74,10 @@ class ShiritoriServer < Sinatra::Base
   get '/play/:uuid/:word' do
     u = params[:uuid]
     if $games.key?(u) then
-      return $games[u].play(params[:word])
+      puts "player: #{params[:word]}"
+      ret = $games[u].play(params[:word])
+      puts "bot: #{ret}"
+      return ret
     end
   end
 end
