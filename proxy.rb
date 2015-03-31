@@ -63,6 +63,7 @@ end
 
 $games = Hash.new
 class ShiritoriServer < Sinatra::Base
+  set :environment, :production
   get '/' do
     'start game: /start/, play game: /play/:uuid/:word'
   end
@@ -79,6 +80,9 @@ class ShiritoriServer < Sinatra::Base
       puts "bot: #{ret}"
       return ret
     end
+  end
+  get '/end/:uuid/' do
+    $games.delete(params[:uuid])
   end
 end
 
