@@ -71,7 +71,7 @@ int main(int argc, char **argv) {
         else
           ++cp[i][pos];
         int s = -alphabeta(cp, i, depth, -beta, -alpha);
-        if (s > alpha) {
+        if (s >= alpha) {
           alpha = s;
           next_pos = i;
         }
