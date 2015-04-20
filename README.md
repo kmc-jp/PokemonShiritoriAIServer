@@ -4,7 +4,7 @@ Pepperくんのポケモンしりとりで用いている、 ポケモンしり�
 proxy.rbがPepperくんとAIコアの中継をする役割を果たしています。
 main.rbがAIの本体です。
 
-# Install
+# Install and Run
 
 ```
 git clone https://github.com/kmc-jp/PokemonShiritoriAIServer.git
